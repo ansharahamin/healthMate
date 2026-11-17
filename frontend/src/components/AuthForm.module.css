@@ -1,0 +1,263 @@
+.authShell {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 48px 20px 34px;
+  background:
+    radial-gradient(ellipse at 14% 12%, rgba(216, 233, 216, 0.72), transparent 33%),
+    radial-gradient(ellipse at 90% 82%, rgba(240, 228, 205, 0.48), transparent 32%),
+    #f7f8f3;
+}
+
+.backLink {
+  position: absolute;
+  top: 30px;
+  left: max(28px, calc((100% - 1080px) / 2));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #64786c;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  color: #285d4a;
+}
+
+.authCard {
+  width: min(100%, 440px);
+  padding: 34px 38px 29px;
+  border: 1px solid rgba(47, 81, 60, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 252, 0.94);
+  box-shadow: 0 25px 80px rgba(37, 70, 50, 0.12);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 30px;
+  color: #1d3831;
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -0.75px;
+  text-decoration: none;
+}
+
+.brandMark {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  color: #38745b;
+}
+
+.brandMark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brandDot {
+  color: #d29d54;
+}
+
+.eyebrow {
+  margin: 0 0 9px;
+  color: #728b7b;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.4px;
+}
+
+.authCard h1 {
+  margin: 0;
+  color: #244337;
+  font-size: 29px;
+  font-weight: 580;
+  letter-spacing: -1.2px;
+}
+
+.intro {
+  margin: 10px 0 23px;
+  color: #78877e;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.modeSwitch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 22px;
+  padding: 4px;
+  border-radius: 10px;
+  background: #f0f3ed;
+}
+
+.modeSwitch a {
+  display: grid;
+  min-height: 36px;
+  place-items: center;
+  border-radius: 7px;
+  color: #75837b;
+  font-size: 11px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.modeSwitch .activeMode {
+  background: #fff;
+  color: #315945;
+  box-shadow: 0 1px 5px rgba(37, 69, 49, 0.09);
+}
+
+.form {
+  display: grid;
+  gap: 15px;
+}
+
+.form label {
+  display: grid;
+  gap: 7px;
+}
+
+.form label > span {
+  color: #445e4e;
+  font-size: 10px;
+  font-weight: 680;
+}
+
+.form input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #e0e8df;
+  border-radius: 9px;
+  outline: 0;
+  background: #fff;
+  color: #294438;
+  font-size: 12px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.form input::placeholder {
+  color: #a7b0aa;
+}
+
+.form input:focus {
+  border-color: #77a486;
+  box-shadow: 0 0 0 3px rgba(108, 157, 121, 0.14);
+}
+
+.submitButton {
+  display: flex;
+  min-height: 47px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #285d4a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #1f4d3c;
+}
+
+.submitButton:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.error,
+.success {
+  margin: -4px 0 15px;
+  padding: 11px 12px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.error {
+  border: 1px solid #f1d7d0;
+  background: #fff5f1;
+  color: #98513e;
+}
+
+.success {
+  border: 1px solid #d6e8d8;
+  background: #f2f8f1;
+  color: #3e6e4c;
+}
+
+.success p {
+  margin: 0 0 8px;
+}
+
+.success a {
+  color: #315e42;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.privacyNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 21px 0 0;
+  color: #89968e;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.privacyNote span {
+  color: #668771;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.disclaimer {
+  position: absolute;
+  bottom: 12px;
+  margin: 0;
+  color: #9aa59e;
+  font-size: 9px;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .authShell {
+    padding: 74px 17px 45px;
+  }
+
+  .backLink {
+    top: 25px;
+    left: 20px;
+  }
+
+  .authCard {
+    padding: 28px 23px 24px;
+    border-radius: 18px;
+  }
+
+  .authCard h1 {
+    font-size: 26px;
+  }
+
+  .disclaimer {
+    right: 16px;
+    bottom: 14px;
+    left: 16px;
+    font-size: 8px;
+  }
+}

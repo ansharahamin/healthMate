@@ -1,0 +1,334 @@
+.appShell {
+  --ink: #203d34;
+  --muted: #74847b;
+  --forest: #285d4a;
+  min-height: 100vh;
+  background: #f7f8f3;
+  color: var(--ink);
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 4;
+  display: flex;
+  width: 248px;
+  flex-direction: column;
+  padding: 28px 18px 22px;
+  border-right: 1px solid #e8eee7;
+  background: #fbfcf8;
+}
+
+.brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 9px;
+  color: #203d34;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  text-decoration: none;
+}
+
+.brandMark {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f1e8;
+  color: #38745b;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.brandDot {
+  color: #d29d54;
+}
+
+.navLabel {
+  margin: 48px 0 12px 12px;
+  color: #98a69d;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.4px;
+}
+
+.navigation {
+  display: grid;
+  gap: 5px;
+}
+
+.navLink {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  border-radius: 10px;
+  color: #687970;
+  font-size: 13px;
+  font-weight: 550;
+  text-decoration: none;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.navLink:hover,
+.activeLink {
+  background: #eaf2e9;
+  color: #285d4a;
+}
+
+.activeLink {
+  font-weight: 700;
+}
+
+.navIcon {
+  display: grid;
+  width: 22px;
+  place-items: center;
+  color: #72917a;
+  font-size: 18px;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding: 14px 11px 0;
+  border-top: 1px solid #e8eee7;
+}
+
+.sidebarFooter p {
+  margin: 0 0 12px;
+  color: #8a9890;
+  font-size: 11px;
+}
+
+.sidebarFooter button,
+.mobileNavigation button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #658070;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 650;
+  text-align: left;
+}
+
+.sidebarFooter button:disabled,
+.mobileNavigation button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.signOutError {
+  margin-top: 9px !important;
+  color: #98513e !important;
+  line-height: 1.45;
+}
+
+.mainColumn {
+  min-height: 100vh;
+  margin-left: 248px;
+}
+
+.content {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 0 42px 64px;
+}
+
+.welcomeBar {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e8eee7;
+}
+
+.welcomeBar p {
+  margin: 0;
+  color: #8b9b91;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.3px;
+}
+
+.welcomeBar span {
+  color: #65796d;
+  font-size: 12px;
+}
+
+.mobileHeader,
+.mobileNavigation {
+  display: none;
+}
+
+.fullState {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+  background: #f7f8f3;
+  color: #203d34;
+}
+
+.stateCard {
+  width: min(100%, 440px);
+  padding: 30px;
+  border: 1px solid #e8eee7;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 20px 55px rgba(37, 70, 50, 0.08);
+}
+
+.stateCard h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.7px;
+}
+
+.stateCard p {
+  color: #74847b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.stateCard button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #285d4a;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+}
+
+@media (max-width: 860px) {
+  .sidebar {
+    width: 215px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .mainColumn {
+    margin-left: 215px;
+  }
+
+  .content {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+}
+
+@media (max-width: 680px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mainColumn {
+    margin-left: 0;
+  }
+
+  .mobileHeader {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    min-height: 62px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 19px;
+    border-bottom: 1px solid #e8eee7;
+    background: rgba(251, 252, 248, 0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobileHeader .brand {
+    font-size: 17px;
+  }
+
+  .mobileHeader .brandMark {
+    width: 29px;
+    height: 29px;
+  }
+
+  .menuButton {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    align-content: center;
+    justify-items: center;
+    gap: 5px;
+    border: 1px solid #e1e9df;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .menuButton span {
+    width: 17px;
+    height: 2px;
+    border-radius: 2px;
+    background: #3e6650;
+  }
+
+  .mobileNavigation {
+    position: absolute;
+    z-index: 6;
+    right: 12px;
+    left: 12px;
+    display: grid;
+    gap: 4px;
+    padding: 12px;
+    border: 1px solid #e5ece3;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 16px 35px rgba(37, 70, 50, 0.12);
+  }
+
+  .mobileNavigation a,
+  .mobileNavigation button {
+    display: block;
+    min-height: 42px;
+    padding: 12px;
+    border-radius: 9px;
+    color: #496555;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .mobileNavigation a:hover {
+    background: #eaf2e9;
+  }
+
+  .mobileNavigation p {
+    margin: 0;
+    padding: 0 12px 8px;
+    color: #98513e;
+    font-size: 12px;
+  }
+
+  .content {
+    padding: 0 19px 42px;
+  }
+
+  .welcomeBar {
+    min-height: 58px;
+    margin-bottom: 24px;
+  }
+
+  .welcomeBar p {
+    font-size: 8px;
+    letter-spacing: 0.9px;
+  }
+
+  .welcomeBar span {
+    font-size: 10px;
+  }
+}
