@@ -19,5 +19,5 @@ Sign-in and account creation are available at `/login` and `/signup`. After sign
 - `/timeline` to see files and readings in date order.
 - `/insights` for saved report summaries and a generated vitals overview.
 - `/profile` for account details and sign-out.
-
+“To update your Production Deployment, push to the main branch.”
 Health file uploads accept PDF, JPEG, PNG, and WebP files up to 10 MB.
