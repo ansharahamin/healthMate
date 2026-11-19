@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-const backendUrl = (process.env.HEALTHMATE_API_URL || "http://localhost:3000").replace(/\/+$/, "");
+const backendUrl = (
+  process.env.HEALTHMATE_API_URL
+  || process.env.VITE_API_URL
+  || "https://backend-gxdj.vercel.app"
+).replace(/\/+$/, "");
 
 const nextConfig = {
   /* config options here */
