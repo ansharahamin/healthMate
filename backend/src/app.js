@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 const app = express()
 const allowedOrigins = [
   'https://health-mate-g1l2.vercel.app',
+  'https://health-mate-rpic.vercel.app',
   'http://localhost:3001',
 ]
 const corsOptions = {
