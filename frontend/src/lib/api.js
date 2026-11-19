@@ -1,3 +1,5 @@
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
+
 export class ApiError extends Error {
   constructor(message, status) {
     super(message);
@@ -7,6 +9,10 @@ export class ApiError extends Error {
 }
 
 export async function apiRequest(path, options = {}) {
+  if (!API_BASE_URL) {
+    throw new Error("NEXT_PUBLIC_API_URL is not configured.");
+  }
+
   const headers = new Headers(options.headers);
   const isFormData = typeof FormData !== "undefined" && options.body instanceof FormData;
 
@@ -14,7 +20,7 @@ export async function apiRequest(path, options = {}) {
     headers.set("Content-Type", "application/json");
   }
 
-  const response = await fetch(path, {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
     credentials: "include",
     headers,

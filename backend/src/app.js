@@ -9,16 +9,16 @@ import userRoutes from './routes/users.routes.js'
 import cookieParser from "cookie-parser";
 const app = express()
 const allowedOrigins = [
-  'http://localhost:5173',
-  'http://127.0.0.1:5173',
-  'https://frontend-dusky-mu-84.vercel.app/',
-  ...(process.env.FRONTEND_URL ?? '').split(',').map((origin) => origin.trim()).filter(Boolean),
+  'https://health-mate-g1l2.vercel.app',
+  'http://localhost:3001',
 ]
-app.use(cors({
+const corsOptions = {
   origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-}))
+}
+app.options(/.*/, cors(corsOptions))
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(cookieParser())
 app.use('/api/auth',authRoutes)

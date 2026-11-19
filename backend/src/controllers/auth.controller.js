@@ -7,7 +7,7 @@ const ONE_DAY = 24 * 60 * 60 * 1000
 function setAuthCookie(res, token) {
     res.cookie('token', token, {
         httpOnly: true,
-        sameSite: 'lax',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         secure: process.env.NODE_ENV === 'production',
         maxAge: ONE_DAY,
         path: '/',
@@ -108,7 +108,7 @@ function getCurrentUser(req, res) {
 function logoutUser(_req, res) {
     res.clearCookie('token', {
         httpOnly: true,
-        sameSite: 'lax',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         secure: process.env.NODE_ENV === 'production',
         path: '/',
     })

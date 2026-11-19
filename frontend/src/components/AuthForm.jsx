@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { apiRequest } from "../lib/api";
 import styles from "./AuthForm.module.css";
 
 function BrandMark() {
@@ -31,25 +32,18 @@ export default function AuthForm({ mode }) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`/api/auth/${isRegistering ? "register" : "login"}`, {
+      await apiRequest(`/api/auth/${isRegistering ? "register" : "login"}`, {
         method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(isRegistering
           ? { userName: userName.trim(), email: email.trim(), password }
           : { email: email.trim(), password }),
       });
-      const result = await response.json().catch(() => ({}));
 
-      if (!response.ok) {
-        setError(result.message || "We couldn't complete that request. Please try again.");
-      } else {
-        setSuccess(isRegistering
-          ? "Your account is ready. You're signed in."
-          : "You're signed in. Your session is ready.");
-      }
-    } catch {
-      setError("Unable to reach HealthMate. Check that the backend is running and try again.");
+      setSuccess(isRegistering
+        ? "Your account is ready. You're signed in."
+        : "You're signed in. Your session is ready.");
+    } catch (requestError) {
+      setError(requestError.message || "Unable to reach HealthMate. Check that the backend is running and try again.");
     } finally {
       setIsSubmitting(false);
     }

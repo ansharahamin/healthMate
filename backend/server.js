@@ -8,10 +8,8 @@ import { setSocketServer } from './src/socket.js'
 const PORT = 3000
 const httpServer = createServer(app)
 const allowedOrigins = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'https://frontend-dusky-mu-84.vercel.app/',
-    ...(process.env.FRONTEND_URL ?? '').split(',').map((origin) => origin.trim()).filter(Boolean),
+    'https://health-mate-g1l2.vercel.app',
+    'http://localhost:3001',
 ]
 const io = new Server(httpServer,{
     cors:{
