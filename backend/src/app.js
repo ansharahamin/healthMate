@@ -7,14 +7,12 @@ import vitalRoutes from './routes/vitals.routes.js'
 import aiRoutes from './routes/ai.routes.js'
 import userRoutes from './routes/users.routes.js'
 import cookieParser from "cookie-parser";
+import { isAllowedCorsOrigin } from './utils/cors-origin.js'
 const app = express()
-const allowedOrigins = [
-  'https://health-mate-g1l2.vercel.app',
-  'https://health-mate-rpic.vercel.app',
-  'http://localhost:3001',
-]
 const corsOptions = {
-  origin: allowedOrigins,
+  origin(origin, callback) {
+    callback(null, !origin || isAllowedCorsOrigin(origin))
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 }

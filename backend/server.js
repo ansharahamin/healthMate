@@ -4,17 +4,15 @@ import {Server} from "socket.io"
 import {createServer} from 'http'
 import jwt from 'jsonwebtoken'
 import { setSocketServer } from './src/socket.js'
+import { isAllowedCorsOrigin } from './src/utils/cors-origin.js'
 
 const PORT = 3000
 const httpServer = createServer(app)
-const allowedOrigins = [
-    'https://health-mate-g1l2.vercel.app',
-    'https://health-mate-rpic.vercel.app',
-    'http://localhost:3001',
-]
 const io = new Server(httpServer,{
     cors:{
-        origin: allowedOrigins,
+        origin(origin, callback) {
+            callback(null, !origin || isAllowedCorsOrigin(origin))
+        },
         credentials: true,
     }
 })
